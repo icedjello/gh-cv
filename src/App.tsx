@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import {
-  personalDetails,
-  skillsAndTechnologies,
-  employmentHistory,
-} from "./contents.json";
+import { personalDetails, skillsAndTech, jobHistory } from "./contents.json";
 
-function App() {
+import SkillsColumns from "./components/SkillsColumns";
+import PersonalDetails from "./components/PersonalDetails";
+import EmploymentHistory from "./components/EmploymentHistory";
+
+export default function App() {
   useEffect(() => {
     const pageTitle = document.querySelector("title") as HTMLTitleElement;
     pageTitle.textContent = `${personalDetails.preferredName} ${personalDetails.lastName}`;
@@ -13,11 +13,9 @@ function App() {
 
   return (
     <>
-      <pre>{JSON.stringify(personalDetails)}</pre>
-      <pre>{JSON.stringify(skillsAndTechnologies)}</pre>
-      <pre>{JSON.stringify(employmentHistory)}</pre>
+      <PersonalDetails {...personalDetails} />
+      <SkillsColumns {...skillsAndTech} />
+      <EmploymentHistory {...jobHistory} />
     </>
   );
 }
-
-export default App;

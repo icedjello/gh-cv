@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply m-8;
-  background-color: theme(colors.gray.600);
-  color: theme(accentColor.zinc.200);
+@layer base {
+  body {
+    @apply bg-gray-800 text-orange-300 m-16 font-mono;
+  }
+  h1 {
+    @apply text-center m-4 text-xl;
+  }
+  h2 {
+    @apply text-center m-2 text-lg;
+  }
 }
